@@ -1,0 +1,48 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="db_persistence" transaction-type="RESOURCE_LOCAL">
+        <description>
+            Persistence unit for the JPA tutorial of the Hibernate Getting Started Guide
+        </description>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>miage.m2.persistenceTP.model.Acteur</class>
+        <class>miage.m2.persistenceTP.model.Adresse</class>
+        <class>miage.m2.persistenceTP.model.Appartement</class>
+        <class>miage.m2.persistenceTP.model.BatimentPublic</class>
+        <class>miage.m2.persistenceTP.model.Charpente</class>
+        <class>miage.m2.persistenceTP.model.Dallage</class>
+        <class>miage.m2.persistenceTP.model.Electricite</class>
+        <class>miage.m2.persistenceTP.model.Entreprise</class>
+        <class>miage.m2.persistenceTP.model.EtablissementScolaire</class>
+        <class>miage.m2.persistenceTP.model.Fondation</class>
+        <class>miage.m2.persistenceTP.model.Hopital</class>
+        <class>miage.m2.persistenceTP.model.Immeuble</class>
+        <class>miage.m2.persistenceTP.model.Lot</class>
+        <class>miage.m2.persistenceTP.model.Lotissement</class>
+        <class>miage.m2.persistenceTP.model.Maconnerie</class>
+        <class>miage.m2.persistenceTP.model.Maison</class>
+        <class>miage.m2.persistenceTP.model.Menuiseries</class>
+        <class>miage.m2.persistenceTP.model.Musee</class>
+        <class>miage.m2.persistenceTP.model.Peinture</class>
+        <class>miage.m2.persistenceTP.model.Platerie</class>
+        <class>miage.m2.persistenceTP.model.Projet</class>
+        <class>miage.m2.persistenceTP.model.Reseaux</class>
+        <class>miage.m2.persistenceTP.model.Terrassement</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/persistenceTP" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="" />
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
