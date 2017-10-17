@@ -1,10 +1,12 @@
 package miage.m2.persistenceTP.model;
 
 import javax.persistence.*;
+
 import java.util.Date;
 import java.util.Set;
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Projet {
 
 	@Id

@@ -7,7 +7,7 @@ public class EntityManager {
     private static javax.persistence.EntityManager em;
 
     public static void init(){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("db_persistence");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistencetp");
         em = emf.createEntityManager();
     }
 
