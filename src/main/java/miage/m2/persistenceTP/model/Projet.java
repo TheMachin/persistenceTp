@@ -34,6 +34,9 @@ public class Projet {
 	@OneToMany
 	private Set<Lot> lots;
 
+	@ManyToMany
+	private Set<Acteur> participants;
+
 	public Projet(){
 		
 	}
@@ -143,7 +146,12 @@ public class Projet {
 	public void setLots(Set<Lot> lots) {
 		this.lots = lots;
 	}
-	
-	
-	
+
+	public Set<Acteur> getParticipants() {
+		return participants;
+	}
+
+	public void setParticipants(Set<Acteur> participants) {
+		this.participants = participants;
+	}
 }

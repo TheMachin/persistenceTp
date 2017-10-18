@@ -26,7 +26,7 @@ public class Lot {
 	private Date dateFinReel;
 
 	@ManyToMany
-	private Set<Entreprise> realise;
+	private Set<Entreprise> realisateurs;
 
 	@ManyToOne
 	private Entreprise responsable;
@@ -56,7 +56,7 @@ public class Lot {
 		this.avancement = avancement;
 		this.coutReel = coutReel;
 		this.dateFinReel = dateFinReel;
-		this.realise = realise;
+		this.realisateurs = realise;
 		this.responsable = responsable;
 	}
 
@@ -116,12 +116,12 @@ public class Lot {
 		this.dateFinReel = dateFinReel;
 	}
 
-	public Set<Entreprise> getRealise() {
-		return realise;
+	public Set<Entreprise> getRealisateurs() {
+		return realisateurs;
 	}
 
-	public void setRealise(Set<Entreprise> realise) {
-		this.realise = realise;
+	public void setRealisateurs(Set<Entreprise> realise) {
+		this.realisateurs = realise;
 	}
 
 	public Entreprise getResponsable() {
@@ -136,7 +136,7 @@ public class Lot {
 	public String toString() {
 		return "Lot [numero=" + numero + ", dateDebut=" + dateDebut + ", dureeEstime=" + dureeEstime + ", coutEstime="
 				+ coutEstime + ", avancement=" + avancement + ", coutReel=" + coutReel + ", dateFinReel=" + dateFinReel
-				+ ", realise=" + realise + ", responsable=" + responsable + "]";
+				+ ", realise=" + realisateurs + ", responsable=" + responsable + "]";
 	}
 	
 	
