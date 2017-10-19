@@ -3,6 +3,18 @@ package miage.m2.persistenceTP.model;
 import miage.m2.persistenceTP.enumeration.*;
 
 import javax.persistence.*;
+import java.util.Set;
+
+@NamedQueries(
+		{
+				@NamedQuery(
+						name="Entreprise.requete1",
+						query="SELECT e.nom FROM Entreprise e"),
+				@NamedQuery(
+						name="Entreprise.requete5",
+						query="SELECT e.nom FROM Entreprise e WHERE e.corpsMetier = :corpsMetier")
+		}
+)
 
 @Entity
 public class Entreprise {
@@ -17,6 +29,9 @@ public class Entreprise {
 
 	@OneToOne
 	private Adresse siegeSocial;
+
+	@OneToMany(mappedBy = "entreprise")
+	private Set<Acteur> acteurs;
 
 	public Entreprise(){
 		
@@ -67,6 +82,11 @@ public class Entreprise {
 		this.siegeSocial = siegeSocial;
 	}
 
-	
-	
+	public Set<Acteur> getActeurs() {
+		return acteurs;
+	}
+
+	public void setActeurs(Set<Acteur> acteurs) {
+		this.acteurs = acteurs;
+	}
 }

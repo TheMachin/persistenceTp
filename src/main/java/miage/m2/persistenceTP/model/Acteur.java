@@ -5,6 +5,12 @@ import miage.m2.persistenceTP.enumeration.*;
 import javax.persistence.*;
 import java.util.Set;
 
+@NamedQueries(
+		@NamedQuery(
+				name="Acteur.requete9",
+				query="SELECT a.nom, a.entreprise.nom FROM Acteur a JOIN a.projets p WHERE p.refProjet = :ref")
+)
+
 @Entity
 public class Acteur {
 
@@ -20,7 +26,7 @@ public class Acteur {
 	@ManyToOne
 	private Entreprise entreprise;
 
-	@ManyToMany
+	@ManyToMany(mappedBy = "participants")
 	private Set<Projet> projets;
 
 	public Acteur(){
@@ -33,7 +39,6 @@ public class Acteur {
 	 * @param titre
 	 * @param statut
 	 * @param entreprise
-	 * @param projets
 	 */
 	public Acteur(String nom, ETitre titre, EStatut statut, Entreprise entreprise) {
 		this.nom = nom;

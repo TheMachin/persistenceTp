@@ -5,6 +5,22 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
+@NamedQueries({
+		@NamedQuery(
+				name="Projet.requete3",
+				query="SELECT p.avancement FROM Projet p WHERE p.refProjet = :ref"),
+		@NamedQuery(
+				name="Projet.requete7",
+				query="SELECT DISTINCT p.nom FROM Projet p JOIN p.participants lesParticipants WHERE lesParticipants.entreprise.nom = :nom " +
+						"AND p.termine = true"),
+		@NamedQuery(
+				name="Projet.requete11",
+				query="SELECT sum(lots.coutEstime) FROM Projet p JOIN p.lots lots WHERE p.refProjet = :ref"),
+		@NamedQuery(
+				name="Projet.requete13",
+				query="SELECT p.nom, sum(lots.coutEstime) FROM Projet p JOIN p.lots lots WHERE p.termine = false GROUP BY p.nom")
+})
+
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Projet {
@@ -35,6 +51,11 @@ public class Projet {
 	private Set<Lot> lots;
 
 	@ManyToMany
+	@JoinTable(
+			name = "Acteur_Projet",
+			joinColumns = { @JoinColumn(name = "acteur_id") },
+			inverseJoinColumns = { @JoinColumn(name = "projet_id") }
+	)
 	private Set<Acteur> participants;
 
 	public Projet(){
