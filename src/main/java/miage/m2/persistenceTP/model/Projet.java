@@ -154,4 +154,12 @@ public class Projet {
 	public void setParticipants(Set<Acteur> participants) {
 		this.participants = participants;
 	}
+
+	@Override
+	public String toString() {
+		return "Projet [refProjet=" + refProjet + ", nom=" + nom + ", dateFinEstime=" + dateFinEstime + ", termine="
+				+ termine + ", dateFinReelle=" + dateFinReelle + "]";
+	}
+	
+	
 }
