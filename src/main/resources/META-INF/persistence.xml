@@ -38,10 +38,10 @@
             <property name="javax.persistence.jdbc.user" value="persistencetp" />
             <property name="javax.persistence.jdbc.password" value="" />
 			
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
             <property name="hibernate.show_sql" value="true" />
-            <!-- <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/> -->
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+           	<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <!-- <property name="hibernate.hbm2ddl.auto" value="create"/> -->
         </properties>
 
     </persistence-unit>
