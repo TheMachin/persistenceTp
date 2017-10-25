@@ -17,18 +17,12 @@ public class Pair {
 	private javax.persistence.EntityManager em = EntityManager.getInstance();
 	
 	public Pair(){
-		em.getTransaction().begin();
-		projetEnCours_2();
-		nbProjetEtablissementScolaire_4();
-		nomContactEntrepriseGeneralBatiment_6();
-		lotsProjetEnCoursQueParticipeEntrepriseGeneralBatiment_8();
-		nbLotsProjetPLot12_10();
-		entrepriseEtAdresseQuiOntRealiseMenuiseriesDansProjetDeMusee_12();
-		avencementLotsEtLeurTypeDuProjetPLot12_14();
-		em.getTransaction().commit();
+
 	}
 	
 	public void projetEnCours_2(){
+		
+		em.getTransaction().begin();
 		
 		String r = "Select p FROM Projet p WHERE p.termine=:over";
 		Query q = em.createQuery(r);
@@ -42,17 +36,28 @@ public class Pair {
 			System.out.println(p.getRefProjet());
 		}
 		
+		em.getTransaction().commit();
+		
 	}
 	
 	public void nbProjetEtablissementScolaire_4(){
+		
+		em.getTransaction().begin();
+		
 		String r = "Select p FROM EtablissementScolaire p WHERE p.termine=:over";
 		Query q = em.createQuery(r);
 		q.setParameter("over", false);
 		List<Projet> listP = q.getResultList();
 		System.out.println("4. Nombre de projets réalisé portant sur un établissement scolaire : "+listP.size());
+		
+		em.getTransaction().commit();
+		
 	}
 	
 	public void nomContactEntrepriseGeneralBatiment_6(){
+		
+		em.getTransaction().begin();
+		
 		String r = "Select a FROM Acteur a JOIN a.entreprise e WHERE e.nom=:name";
 		Query q = em.createQuery(r);
 		q.setParameter("name", "Général Bâtiment");
@@ -64,9 +69,14 @@ public class Pair {
 		for(Acteur a : list){
 			System.out.println(a.getNom());
 		}
+		
+		em.getTransaction().commit();
+		
 	}
 	
 	public void lotsProjetEnCoursQueParticipeEntrepriseGeneralBatiment_8(){
+		
+		em.getTransaction().begin();
 		
 		String r = "Select DISTINCT l FROM Projet p JOIN p.lots l JOIN l.realisateurs e JOIN l.responsable r "
 				+ "WHERE ((e.nom=:name AND r.nom=:name) OR (e.nom=:name) OR (r.nom=:name)) AND p.termine=:over";
@@ -81,17 +91,28 @@ public class Pair {
 		for(Object l : list){
 			System.out.println(l.getClass().getSimpleName());
 		}
+		
+		em.getTransaction().commit();
+		
 	}
 	
 	public void nbLotsProjetPLot12_10(){
+		
+		em.getTransaction().begin();
+		
 		String r = "Select p.lots FROM Projet p WHERE p.refProjet=:ref";
 		Query q = em.createQuery(r);
 		q.setParameter("ref", "PLot12");
 		int nbResult = q.getResultList().size();
 		System.out.println("10. Nombre de lots du projet PLot12 : "+nbResult);
+		
+		em.getTransaction().commit();
+		
 	}
 	
 	public void entrepriseEtAdresseQuiOntRealiseMenuiseriesDansProjetDeMusee_12(){
+		
+		em.getTransaction().begin();
 		
 		String r="Select e FROM Musee mu JOIN mu.lots l JOIN l.realisateurs e WHERE type(l) = :type";
 		Query q = em.createQuery(r);
@@ -104,9 +125,15 @@ public class Pair {
 		for(Entreprise e : list){
 			System.out.println("Nom entreprise : "+e.getNom()+" "+e.getSiegeSocial().toString());
 		}
+		
+		em.getTransaction().commit();
+		
 	}
 	
 	public void avencementLotsEtLeurTypeDuProjetPLot12_14(){
+		
+		em.getTransaction().begin();
+		
 		String r="SELECT l FROM Projet p JOIN p.lots l WHERE p.refProjet=:ref";
 		Query q = em.createQuery(r);
 		q.setParameter("ref", "PLot12");
@@ -118,6 +145,9 @@ public class Pair {
 		for(Object s : list){
 			System.out.println("Type du lot : "+s.getClass().getSimpleName()+" Avancement : "+((Lot) s).getAvancement());
 		}
+		
+		em.getTransaction().commit();
+		
 	}
 	
 }

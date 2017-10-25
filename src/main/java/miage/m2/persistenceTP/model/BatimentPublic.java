@@ -1,11 +1,9 @@
 package miage.m2.persistenceTP.model;
 
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 
 @Entity
-public class BatimentPublic extends Projet {
+public abstract class BatimentPublic extends Projet {
 
 	private String Ministere;
 

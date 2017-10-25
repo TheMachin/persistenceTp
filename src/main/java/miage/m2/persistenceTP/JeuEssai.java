@@ -21,7 +21,7 @@ public class JeuEssai {
         entrepriseRobertCharpentier.setNom("Robert SARL");
         entrepriseRobertCharpentier.setNumTel("0384520454");
         entrepriseRobertCharpentier.setSiegeSocial(adresseRobertCharpentier);
-        entrepriseRobertCharpentier.setActeurs(new HashSet<>());
+        entrepriseRobertCharpentier.setActeurs(new HashSet<Acteur>());
 
         Adresse adresseMarioLuigi = new Adresse("13","chateau de bowser","57000","Metz");
         Entreprise marioLuigi = new Entreprise();
@@ -29,7 +29,7 @@ public class JeuEssai {
         marioLuigi.setNom("Mario & Luigi Plomberie");
         marioLuigi.setNumTel("0384520454");
         marioLuigi.setSiegeSocial(adresseMarioLuigi);
-        marioLuigi.setActeurs(new HashSet<>());
+        marioLuigi.setActeurs(new HashSet<Acteur>());
 
         Adresse adressePicassoPeinture = new Adresse("36","avenue de la joconde","55000","Bar");
         Entreprise picassoPeinture = new Entreprise();
@@ -37,7 +37,7 @@ public class JeuEssai {
         picassoPeinture.setNom("Picasso peinture");
         picassoPeinture.setNumTel("0384520454");
         picassoPeinture.setSiegeSocial(adressePicassoPeinture);
-        picassoPeinture.setActeurs(new HashSet<>());
+        picassoPeinture.setActeurs(new HashSet<Acteur>());
 
         Adresse adresseTeslaElectricite = new Adresse("85","rue du tonnerre","54000","Nancy");
         Entreprise teslaElectricite = new Entreprise();
@@ -45,7 +45,7 @@ public class JeuEssai {
         teslaElectricite.setNom("Tesla electricite");
         teslaElectricite.setNumTel("0384520454");
         teslaElectricite.setSiegeSocial(adresseTeslaElectricite);
-        teslaElectricite.setActeurs(new HashSet<>());
+        teslaElectricite.setActeurs(new HashSet<Acteur>());
 
         Adresse adressePortugalMaconnerie = new Adresse("42","rue des macons","54000","Nancy");
         Entreprise lesPortugais = new Entreprise();
@@ -53,7 +53,7 @@ public class JeuEssai {
         lesPortugais.setNom("Les portugais");
         lesPortugais.setNumTel("0384520454");
         lesPortugais.setSiegeSocial(adressePortugalMaconnerie);
-        lesPortugais.setActeurs(new HashSet<>());
+        lesPortugais.setActeurs(new HashSet<Acteur>());
 
         Adresse adresseLesCambrioleur = new Adresse("24","rue de la banque","54000","Nancy");
         Entreprise lesCambrioleurs = new Entreprise();
@@ -61,7 +61,7 @@ public class JeuEssai {
         lesCambrioleurs.setNom("Les cambrioleurs");
         lesCambrioleurs.setNumTel("0384520454");
         lesCambrioleurs.setSiegeSocial(adresseLesCambrioleur);
-        lesCambrioleurs.setActeurs(new HashSet<>());
+        lesCambrioleurs.setActeurs(new HashSet<Acteur>());
 
         Adresse adresseLesRatonsLaveur = new Adresse("74","rue de la forêt","54000","Nancy");
         Entreprise lesRatonsLaveurs = new Entreprise();
@@ -69,7 +69,7 @@ public class JeuEssai {
         lesRatonsLaveurs.setNom("Les ratons laveurs SARL");
         lesRatonsLaveurs.setNumTel("0384520454");
         lesRatonsLaveurs.setSiegeSocial(adresseLesRatonsLaveur);
-        lesRatonsLaveurs.setActeurs(new HashSet<>());
+        lesRatonsLaveurs.setActeurs(new HashSet<Acteur>());
 
         Adresse adresseCouvreur = new Adresse("25","rue des toits","54000","Nancy");
         Entreprise lesCouvreurs = new Entreprise();
@@ -77,7 +77,7 @@ public class JeuEssai {
         lesCouvreurs.setNom("Les couvreurs du dimanche");
         lesCouvreurs.setNumTel("0384520454");
         lesCouvreurs.setSiegeSocial(adresseCouvreur);
-        lesCouvreurs.setActeurs(new HashSet<>());
+        lesCouvreurs.setActeurs(new HashSet<Acteur>());
 
         Adresse adressePlatrier = new Adresse("12","rue de l'hopital","54000","Nancy");
         Entreprise lesPlatriers = new Entreprise();
@@ -85,7 +85,7 @@ public class JeuEssai {
         lesPlatriers.setNom("Général Bâtiment");
         lesPlatriers.setNumTel("0384520454");
         lesPlatriers.setSiegeSocial(adressePlatrier);
-        lesPlatriers.setActeurs(new HashSet<>());
+        lesPlatriers.setActeurs(new HashSet<Acteur>());
 
         Adresse adresseCarreleur = new Adresse("22","rue des sphynx","54000","Nancy");
         Entreprise lesCarreleurs = new Entreprise();
@@ -93,7 +93,7 @@ public class JeuEssai {
         lesCarreleurs.setNom("Numerobis SARL");
         lesCarreleurs.setNumTel("0384520454");
         lesCarreleurs.setSiegeSocial(adresseCarreleur);
-        lesCarreleurs.setActeurs(new HashSet<>());
+        lesCarreleurs.setActeurs(new HashSet<Acteur>());
 
         EntityManager em = miage.m2.persistenceTP.EntityManager.getInstance();
 
@@ -218,7 +218,7 @@ public class JeuEssai {
         projetLotissement.setTermine(true);
         projetLotissement.setNbMaisons(5);
         projetLotissement.setCoutTotalEstime(2000000);
-        Set<Acteur> participants = new HashSet<>();
+        Set<Acteur> participants = new HashSet<Acteur>();
         participants.add(mario);
         participants.add(picasso);
         participants.add(regis);
@@ -236,14 +236,14 @@ public class JeuEssai {
         realisateurLot1.add(lesPlatriers);
         realisateurLot1.add(lesRatonsLaveurs);
         realisateurLot1.add(teslaElectricite);
-        Lot lot1 = new Lot("Lot1",new Date(),60,3500,"100%",6000,new Date(),realisateurLot1,lesPortugais);
+        Electricite lot1 = new Electricite("Lot1",new Date(),60,3500,"100%",6000,new Date(),realisateurLot1,lesPortugais, 0, 0);
 
         Set<Entreprise> realisateurLot2 = new HashSet<Entreprise>();
         realisateurLot2.add(lesRatonsLaveurs);
         realisateurLot2.add(picassoPeinture);
-        Lot lot2 = new Lot("Lot2",new Date(),40,2500,"100%",3500,new Date(),realisateurLot2,lesPlatriers);
+        Peinture lot2 = new Peinture("Lot2",new Date(),40,2500,"100%",3500,new Date(),realisateurLot2,lesPlatriers, 0);
 
-        Set<Lot> lots = new HashSet<>();
+        Set<Lot> lots = new HashSet<Lot>();
         lots.add(lot1);
         lots.add(lot2);
         projetLotissement.setLots(lots);
@@ -267,7 +267,7 @@ public class JeuEssai {
         etablissementScolaire.setDateFinReelle(null);
         etablissementScolaire.setLocalisation(etablissementScolaireAdresse);
         etablissementScolaire.setTermine(false);
-        Set<Acteur> participantsEtablissementScolaire = new HashSet<>();
+        Set<Acteur> participantsEtablissementScolaire = new HashSet<Acteur>();
         participantsEtablissementScolaire.add(mario);
         participantsEtablissementScolaire.add(picasso);
         participantsEtablissementScolaire.add(regis);
@@ -299,7 +299,7 @@ public class JeuEssai {
         immeuble.setDateFinReelle(null);
         immeuble.setLocalisation(adresseImmeuble);
         immeuble.setTermine(false);
-        immeuble.setParticipants(new HashSet<>());
+        immeuble.setParticipants(new HashSet<Acteur>());
         immeuble.setSurfaceTotal(2000);
         immeuble.setCoutTotalEstime(700000);
 
@@ -320,7 +320,7 @@ public class JeuEssai {
         musee.setDateFinReelle(null);
         musee.setLocalisation(adresseMusee);
         musee.setTermine(false);
-        musee.setParticipants(new HashSet<>());
+        musee.setParticipants(new HashSet<Acteur>());
         musee.setSurfaceTotal(1500);
         musee.setCoutTotalEstime(400000);
 

@@ -6,7 +6,7 @@ import java.util.Set;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class Lot {
+public abstract class Lot {
 
 	@Id
 	private String numero;

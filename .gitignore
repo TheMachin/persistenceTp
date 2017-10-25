@@ -100,6 +100,9 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+src/main/resources/META-INF/*
+src/main/resources/META-INF/persistence.xml
+src/main/resources/META-INF/persistence.xml
 src/main/resources/META-INF/persistence.xml
 src/main/resources/META-INF/persistence.xml
 src/main/resources/META-INF/persistence.xml

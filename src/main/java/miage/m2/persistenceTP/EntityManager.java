@@ -5,13 +5,20 @@ import javax.persistence.Persistence;
 
 public class EntityManager {
     private static javax.persistence.EntityManager em;
+    private static  EntityManagerFactory emf;
 
     public static void init(){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistencetp");
+        emf = Persistence.createEntityManagerFactory("persistencetp");
         em = emf.createEntityManager();
     }
 
     public static javax.persistence.EntityManager getInstance(){
         return em;
     }
+    
+    public static void close(){
+    	em.close();
+    	emf.close();
+    }
+    
 }

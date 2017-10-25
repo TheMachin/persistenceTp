@@ -23,7 +23,7 @@ import java.util.Set;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-public class Projet {
+public abstract class Projet {
 
 	@Id
 	private String refProjet;
